@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html>
+<head>
+<link type="text/css" rel="stylesheet" href="css/jquery.mobile-1.2.0.min.css"></link>
+<script type="text/javascript" src="js/jquery-1.8.2.min.js"></script>
+<script type="text/javascript" src="js/jquery.mobile-1.2.0.min.js"></script>
+
+<script>
+function draw(){
+	var names=["Ben", "Ken", "Tot", "Pot", "Chiki"];
+	var rand=Math.floor(Math.random()*4);
+
+document.getElementById("txtWinner").innerHTML = names[rand];	
+var lifePoints = parseInt(document.getElementById("life").value);
+lifePoints = lifePoints-10;
+
+}
+
+function save(){
+	var topScore = prompt("Enter Score : ");
+	localStorage.setItem("MyTopScore", topScore);
+}
+
+function showScore(){
+	alert(localStorage.getItem("MyTopScore"));
+}
+</script>
+
+</head>
+<body>
+<div data-role="page" data-theme="b">
+	<div data-role="header" data-theme="e">
+		<h1>RAFFLE</h1>
+	</div>
+
+	<div data-role="content" >
+	<button onClick="draw()" >PRESS</button>
+	<button onClick="save()" >SAVE</button>
+	<button onClick="showScore()">SHOW SCORE</button>
+	<meter min=0 max=100 high=90 low=10 value=90 id="life"></meter>
+	<h1 id="txtWinner"></h1>
+	
+	</div>
+
+
+	<div data-role="footer" data-position="fixed">
+		<div data-role="navbar">
+			<ul>
+			<li><a href="#">MENU</a></li>
+			<li><a href="#page2">ENTER</a></li>
+			</ul>
+		<div>
+	</div>
+</div>
+
+<!--<div data-role="page" data-theme="b" id="page2">
+	<div data-role="header" data-theme="e">
+		<h1>My Second Page</h1>
+	</div>
+<button>EXIT</button>
+	<div data-role="footer" data-position="fixed">
+		<div data-role="navbar">
+			<ul>
+			<li><a href="#">MENU</a></li>
+			<li><a href="#">ENTER</a></li>
+			</ul>
+		<div>
+	</div>
+</div>-->
+</body>
+</html>
